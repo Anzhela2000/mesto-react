@@ -4,7 +4,6 @@ function Card(cards, onCardClick) {
     const handleClick = ()=>{
         cards.onCardClick(cards);
       }
-
     return (
         <div className="gallery__item" key={cards._id}>
             <button className="gallery__picture_click" onClick={handleClick}><div className="gallery__picture" style={{ backgroundImage: `url(${cards.link})` }}  onClick={ handleClick }  /></button>
