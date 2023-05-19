@@ -17,11 +17,11 @@ export default class Api {
         }).then(this._checkResponse)
     }
 
-    createCard(link, name) {
+    createCard(name,link) {
         return fetch(`${this._url}/cards`, {
             method: 'POST',
             headers: this._headers,
-            body: JSON.stringify({ link, name })
+            body: JSON.stringify({ name, link })
         }).then(this._checkResponse)
     }
 
@@ -67,10 +67,17 @@ export default class Api {
         return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify({ avatar: data.avatar })
+            body: JSON.stringify({ avatar: data})
         }).then(this._checkResponse)
     }
 
+    changeLikeCardStatus(cardId, isLiked) {
+        if (isLiked) {
+            return this.putLikeCard(cardId);
+        } else {
+            return this.deleteLike(cardId);
+        }
+    }
 }
 
 export const api = new Api({
