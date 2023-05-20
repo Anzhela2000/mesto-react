@@ -50,6 +50,7 @@ function App() {
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
+
   }
 
   function handleAddPlaceClick() {
@@ -123,7 +124,6 @@ function App() {
         />
       </CurrentUserContext.Provider>
     </div>
-
   );
 }
 
